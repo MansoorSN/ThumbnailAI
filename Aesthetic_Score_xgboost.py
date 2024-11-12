@@ -16,19 +16,12 @@ class aesthetic_score:
     def __init__(self, efficientnet_model, model):
         #self.efficientnet_model = EfficientNetV2B0(weights="imagenet", include_top=False, pooling="avg")
         self.efficientnet_model = efficientnet_model
-        # Load the model
-        #with open("xgb_model-full.pkl", "rb") as f:
-        #    self.model = pickle.load(f)
         self.model=model
 
 
 
     def extract_features(self,efficientnet_model,image):
         """Extract features from an image using EfficientNetV2-B0."""
-        # Load image and preprocess
-        #image_path=image_path
-        #image = load_img(image_path, target_size=(224, 224))  # EfficientNetV2B0 expects 224x224 images
-
         image_array = img_to_array(image)
         image_array = np.expand_dims(image_array, axis=0)
         image_array = preprocess_input(image_array)
@@ -50,10 +43,6 @@ class aesthetic_score:
 
     def get_score(self, image):
         start_time=time.time()
-
-        #image_name=df.iloc[210]['image_name']
-        #image_path="/home/mansoor/projects_2024/video_thumbnail/dataset/FLICKR-AES-001/40K/"+image_name
-
 
         #extract features
         features=self.extract_features(self.efficientnet_model,image)
