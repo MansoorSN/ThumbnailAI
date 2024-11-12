@@ -31,7 +31,7 @@ if __name__ == '__main__':
     start_time = time.time()
     
     # Load video and retrieve metadata
-    cap = cv2.VideoCapture("v2.mp4")
+    cap = cv2.VideoCapture("INSERT VIDEO PATH")
     fps = int(cap.get(cv2.CAP_PROP_FPS))
     print(f"FPS of video: {fps}")
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
