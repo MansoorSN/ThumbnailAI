@@ -44,7 +44,7 @@ if __name__ == '__main__':
         if not ret:
             break
         
-        if count % 1 == 0:
+        if count % fps == 0:
             frame = cv2.resize(frame, (224, 224), interpolation=cv2.INTER_CUBIC)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             frame_list.append(frame)
