@@ -51,6 +51,8 @@ if __name__ == '__main__':
 
     print("Frame list extracted.")
     print(f"The length of frame list is: {len(frame_list)}")
+    # Release video capture resource
+    cap.release()
     
     # Initialize model in each process and process frames
     with Pool(processes=6, initializer=init_model) as pool:
@@ -62,8 +64,7 @@ if __name__ == '__main__':
     print(len(sorted_scores_list))
     
 
-    # Release video capture resource
-    cap.release()
+    
     end_time = time.time()
     print("Total time taken to process video (in minutes):", round((end_time - start_time) / 60, 2))
 
